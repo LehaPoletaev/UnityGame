@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(moveH, moveV);
 
         Vector2 direction = new Vector2(moveH, moveV);
-
+       // Debug.Log(direction);
         FindObjectOfType<PlayerAnimation>().setDirection(direction);
     }
 
