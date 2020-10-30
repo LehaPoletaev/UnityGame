@@ -20,7 +20,7 @@ public class EnemyMove : MonoBehaviour
         healthManager = FindObjectOfType<HealthManager>();
     }
 
-     void FixedUpdate()
+     void Update()
     {
         if (Vector2.Distance(target.position, transform.position) <= range)
         {
@@ -67,13 +67,13 @@ public class EnemyMove : MonoBehaviour
     private void followPlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-        Vector2 direction = new Vector2(transform.position.x, transform.position.y);
+        Vector2 direction = new Vector2(target.position.x, target.position.y);
         FindObjectOfType<EnemyAnimation>().setDirection(direction);
     }
     private void goToHome()
     {
         transform.position = Vector2.MoveTowards(transform.position, home_position.position, speed * Time.deltaTime);
-        Vector2 direction = new Vector2(transform.position.x, transform.position.y);
+        Vector2 direction = new Vector2(target.position.x, target.position.y);
         FindObjectOfType<EnemyAnimation>().setDirection(direction);
     }
 }

@@ -6,8 +6,8 @@ public class EnemyAnimation : MonoBehaviour
 {
     private Animator anim;
 
-    //public string[] staticDirections = { "Static N", "Static NW", "Static W", "Static SW", "Static S", "Static SE", "Static E", "Static NE" };
-    public string[] runDirections = { "EnemyRun N", "EnemyRun NW", "EnemyRun W", "EnemyRun SW", "EnemyRun S", "EnemyRun SE", "EnemyRun E", "EnemyRun NE" };
+    public string[] staticDirections = { "Static N", "Static NW", "Static W", "Static SW", "Static S", "Static SE", "Static E", "Static NE" };
+    public string[] runDirections = { "Run N", "Run NW", "Run W", "Run SW", "Run S", "Run SE", "Run E", "Run NE" };
     int lastDirection;
     void Awake()
     {
@@ -20,7 +20,7 @@ public class EnemyAnimation : MonoBehaviour
 
         if (_direction.magnitude < 0.01)
         {
-            //directionArray = staticDirections;
+            directionArray = staticDirections;
         }
         else
         {
