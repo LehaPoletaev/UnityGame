@@ -8,19 +8,30 @@ public class PlayerAnimation : MonoBehaviour
 
     public string[] staticDirections = { "Static N", "Static NW", "Static W", "Static SW", "Static S", "Static SE", "Static E", "Static NE" };
     public string[] runDirections = { "Run N", "Run NW", "Run W", "Run SW", "Run S", "Run SE", "Run E", "Run NE" };
+    public string[] slashDirections = { "SlashUp","SlashLeft", "SlashLeft","SlashDown", "SlashDown", "SlashRight", "SlashRight", "SlashUp" };
     int lastDirection;
     void Awake()
     {
         anim = GetComponent<Animator>();
     }
 
-    public void setDirection(Vector2 _direction)
+    public void setDirection(Vector2 _direction,bool attack)
     {
         string[] directionArray = null;
 
         if (_direction.magnitude < 0.01)
         {
             directionArray = staticDirections;
+            if (attack == true)
+            {
+                directionArray = slashDirections;
+                lastDirection = directionToIndex(_direction);
+            }
+        }
+        else if (attack == true)
+        {
+            directionArray = slashDirections;
+            lastDirection = directionToIndex(_direction);
         }
         else
         {
@@ -30,7 +41,8 @@ public class PlayerAnimation : MonoBehaviour
         anim.Play(directionArray[lastDirection]);
     }
 
-    private int directionToIndex(Vector2 _direction)
+
+    private int directionToIndex(Vector2 _direction )
     {
         Vector2 norDir = _direction.normalized;
         float step = 360 / 8;
