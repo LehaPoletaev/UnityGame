@@ -8,8 +8,7 @@ public class UIManager : MonoBehaviour
     public Slider healthBar;
     public Text texthp;
 
-    public static bool gameIsPaused = false;
-    public GameObject pauseMEnuUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,30 +22,8 @@ public class UIManager : MonoBehaviour
         healthBar.maxValue = healthManager.maxHealth;
         healthBar.value = healthManager.currentHealth;
         texthp.text = "Health: " + healthManager.currentHealth + "/" + healthManager.maxHealth;
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+    
     }
 
-    public void Pause()
-    {
-        pauseMEnuUI.SetActive(true);
-        Time.timeScale = 0f;
-        gameIsPaused = true;
-    }
-
-    public void Resume()
-    {
-        pauseMEnuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
-    }
+    
 }

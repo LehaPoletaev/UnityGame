@@ -45,7 +45,8 @@ public class EnemyMove : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.collider.tag == "Player")
-        {
+        {   
+            
             other.gameObject.GetComponent<HealthManager>().hurtPlayer(damage_received);
         }
     }

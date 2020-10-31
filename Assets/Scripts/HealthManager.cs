@@ -7,8 +7,9 @@ public class HealthManager : MonoBehaviour
 
     public int currentHealth;
     public int maxHealth;
+    PauseMenu menu;
     // Start is called before the first frame update
-    
+
     public void SavePlayer()
     {
 
@@ -25,15 +26,12 @@ public class HealthManager : MonoBehaviour
             position.y = data.position[1];
             transform.position = position;
     }
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
     public void hurtPlayer(int damage_received)
     {
